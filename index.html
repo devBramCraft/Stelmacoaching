@@ -107,6 +107,13 @@
       margin: auto;
     }
     
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
     .section h1, .section h2 {
       color: #1a3a1a;
     }
@@ -120,7 +127,7 @@
     }
     
     .home-image {
-      max-height: 500px;
+      max-height: 60vh;
       width: 100%;
       object-fit: cover;
     }
@@ -166,7 +173,12 @@
       }
       
       .home-image {
-        max-height: 350px;
+        max-height: 50vh;
+      }
+      
+      #home {
+        min-height: 90vh;
+        padding-top: 4rem;
       }
     }
     
@@ -176,7 +188,12 @@
       }
       
       .home-image {
-        max-height: 250px;
+        max-height: 40vh;
+      }
+      
+      #home {
+        min-height: 85vh;
+        padding-top: 3rem;
       }
     }
   </style>
