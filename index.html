@@ -126,12 +126,19 @@
     }
     
     #home {
-      min-height: 70vh; /* Reduced from 100vh */
+      height: calc(100vh - 80px); /* Precies viewport hoogte minus header */
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    
+    .home-content {
+      margin-top: auto;
+      margin-bottom: auto;
     }
     
     .section h1, .section h2 {
@@ -147,10 +154,11 @@
     }
     
     .home-image {
-      max-height: 45vh; /* Reduced from 60vh */
+      max-height: 50vh;
       width: 100%;
       object-fit: cover;
       margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
     }
     
     blockquote { 
@@ -189,12 +197,11 @@
       }
       
       #home {
-        min-height: 60vh; /* Reduced for tablet */
-        padding-top: 2rem;
+        height: calc(100vh - 60px);
       }
       
       .home-image {
-        max-height: 35vh; /* Reduced for tablet */
+        max-height: 40vh;
       }
     }
     
@@ -204,12 +211,11 @@
       }
       
       #home {
-        min-height: 50vh; /* Reduced for mobile */
-        padding-top: 1.5rem;
+        height: calc(100vh - 50px);
       }
       
       .home-image {
-        max-height: 25vh; /* Reduced for mobile */
+        max-height: 30vh;
       }
     }
   </style>
@@ -245,9 +251,11 @@
   </header>
   
   <section class="section" id="home">
-    <h1>Ware verbinding begint bij jezelf</h1>
-    <p>Only when Compassion is present people will allow themselves to see the truth - Almas</p>
-    <img src="home.jpg" alt="Home foto" class="home-image" />
+    <div class="home-content">
+      <h1>Ware verbinding begint bij jezelf</h1>
+      <p>Only when Compassion is present people will allow themselves to see the truth - Almas</p>
+      <img src="home.jpg" alt="Home foto" class="home-image" />
+    </div>
   </section>
 
   <section class="section" id="about">
