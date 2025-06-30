@@ -27,14 +27,20 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
+    .header-left {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+    
     .logo {
       font-weight: bold;
       font-size: 1.2rem;
+      margin-right: 2rem;
     }
     
     nav {
       display: flex;
-      align-items: center;
     }
     
     nav a { 
@@ -54,6 +60,12 @@
       display: none;
       cursor: pointer;
       font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    
+    .header-right {
+      display: flex;
+      align-items: center;
     }
     
     .lang-toggle {
@@ -67,6 +79,7 @@
       cursor: pointer;
       display: flex;
       align-items: center;
+      padding: 0.5rem;
     }
     
     .lang-btn img {
@@ -89,7 +102,12 @@
       color: #2f4f2f;
       padding: 12px 16px;
       text-decoration: none;
-      display: block;
+      display: flex;
+      align-items: center;
+    }
+    
+    .lang-dropdown a img {
+      margin-right: 8px;
     }
     
     .lang-dropdown a:hover {
@@ -167,11 +185,6 @@
         padding: 0.5rem;
       }
       
-      .lang-toggle {
-        margin-left: auto;
-        margin-right: 1rem;
-      }
-      
       .home-image {
         max-height: 50vh;
       }
@@ -200,15 +213,19 @@
 </head>
 <body>
   <header>
-    <div class="logo">Caroline Coaching</div>
-    <div class="menu-toggle">☰</div>
-    <nav id="main-nav">
-      <a href="#home">Thuis</a>
-      <a href="#about">Over mij</a>
-      <a href="#coaching">Coaching en begeleiding</a>
-      <a href="#contact">Contact</a>
+    <div class="header-left">
+      <div class="logo">Caroline Coaching</div>
+      <nav id="main-nav">
+        <a href="#home">Thuis</a>
+        <a href="#about">Over mij</a>
+        <a href="#coaching">Coaching en begeleiding</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="menu-toggle">☰</div>
       <div class="lang-toggle">
-        <button class="lang-btn">
+        <button class="lang-btn" id="current-lang">
           <img src="nl.png" alt="Nederlands">
           <span>NL</span>
         </button>
@@ -221,7 +238,7 @@
           </a>
         </div>
       </div>
-    </nav>
+    </div>
   </header>
   
   <section class="section" id="home">
@@ -252,6 +269,9 @@
   </section>
 
   <script>
+    // Set initial language
+    let currentLanguage = 'nl';
+    
     // Mobile menu toggle
     document.querySelector('.menu-toggle').addEventListener('click', function() {
       document.getElementById('main-nav').classList.toggle('active');
@@ -267,11 +287,24 @@
     });
     
     function setLanguage(lang) {
+      if (lang === currentLanguage) return;
+      
+      currentLanguage = lang;
+      
+      // Update current language button
+      const langBtn = document.getElementById('current-lang');
+      
       if(lang === 'en') {
+        // Update button
+        langBtn.innerHTML = '<img src="gb.png" alt="English"><span>EN</span>';
+        
+        // Update menu
         document.querySelector('nav a[href="#home"]').textContent = 'Home';
         document.querySelector('nav a[href="#about"]').textContent = 'About me';
         document.querySelector('nav a[href="#coaching"]').textContent = 'Coaching';
         document.querySelector('nav a[href="#contact"]').textContent = 'Contact';
+        
+        // Update content
         document.querySelector('#home h1').textContent = 'True connection starts with yourself';
         document.querySelector('#home p').textContent = 'Only when Compassion is present people will allow themselves to see the truth - Almas';
         document.querySelector('#about h2').textContent = 'About me';
@@ -284,7 +317,27 @@
         document.querySelector('#contact p').textContent = 'Feel free to get in touch for an introduction.';
         document.querySelector('#contact blockquote').textContent = 'Safety is not the absence of a threat but the presence of connection - Steven W. Porges';
       } else {
-        location.reload();
+        // Update button
+        langBtn.innerHTML = '<img src="nl.png" alt="Nederlands"><span>NL</span>';
+        
+        // Update menu
+        document.querySelector('nav a[href="#home"]').textContent = 'Thuis';
+        document.querySelector('nav a[href="#about"]').textContent = 'Over mij';
+        document.querySelector('nav a[href="#coaching"]').textContent = 'Coaching en begeleiding';
+        document.querySelector('nav a[href="#contact"]').textContent = 'Contact';
+        
+        // Update content
+        document.querySelector('#home h1').textContent = 'Ware verbinding begint bij jezelf';
+        document.querySelector('#home p').textContent = 'Only when Compassion is present people will allow themselves to see the truth - Almas';
+        document.querySelector('#about h2').textContent = 'Over mij';
+        document.querySelector('#about p').textContent = 'Als eigenaresse van drie praktijken in Arnhem hield ik lange tijd mijn hoofd maar net boven water. De uitdagingen in de diergeneeskunde namen toe, personeel was lastig vast te houden, en ik voelde me enorm verantwoordelijk. Uiteindelijk volgde een burn-out, maar dat werd een keerpunt. Door opleidingen en trainingen kwam ik dichter bij mezelf. Dieren zijn altijd authentiek, dat inspireerde me om weer keuzes te maken vanuit wie ik werkelijk ben.';
+        document.querySelector('#about blockquote').textContent = 'Alleen met het hart kun je goed zien, het wezenlijke is voor de ogen onzichtbaar. - Antoine de Saint-Exupér';
+        document.querySelector('#coaching h2').textContent = 'Coaching en begeleiding';
+        document.querySelector('#coaching p').textContent = 'Mijn benadering zit op de laag van de essentie, niet enkel op gedragsverandering. Daar, in de onderstroom waar het schuurt en pijn doet, maak je contact met je authentieke zelf. Vanuit daar kun je kiezen wie je echt wilt zijn en wat je werkelijk belangrijk vindt.';
+        document.querySelector('#coaching blockquote').textContent = 'Vertel me iets en het waait door me heen. Laat het me zien en ik weet het morgen nog. Laat het me voelen en ik weet het mijn hele leven. - Lao Tse';
+        document.querySelector('#contact h2').textContent = 'Contact';
+        document.querySelector('#contact p').textContent = 'Neem gerust contact op voor een kennismakingsgesprek. Je kunt mailen of bellen, ik hoor graag van je.';
+        document.querySelector('#contact blockquote').textContent = 'Safety is not the absence of a threat but the présence of connection - Steven W. Porges';
       }
     }
   </script>
