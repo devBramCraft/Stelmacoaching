@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caroline Coaching</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #2f4f2f;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #e8f5e9;
+      padding: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #2f4f2f;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .lang-toggle img {
+      width: 24px;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+    .section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #e8f5e9;
+      margin-top: 2rem;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#home" class="nav-link" data-nl="Thuis" data-en="Home">Thuis</a>
+      <a href="#about" class="nav-link" data-nl="Over mij" data-en="About me">Over mij</a>
+      <a href="#coaching" class="nav-link" data-nl="Coaching en begeleiding" data-en="Coaching">Coaching en begeleiding</a>
+      <a href="#contact" class="nav-link" data-nl="Contact" data-en="Contact">Contact</a>
+    </nav>
+    <div class="lang-toggle">
+      <img src="https://flagcdn.com/w20/nl.png" alt="Nederlands" onclick="setLanguage('nl')">
+      <img src="https://flagcdn.com/w20/gb.png" alt="English" onclick="setLanguage('en')">
+    </div>
+  </header>
+
+  <section class="section" id="home">
+    <h1 data-nl="Ware verbinding begint bij jezelf" data-en="True connection starts with yourself">Ware verbinding begint bij jezelf</h1>
+    <p data-nl="Only when Compassion is present people will allow themselves to see the truth - Almas" data-en="Only when Compassion is present people will allow themselves to see the truth - Almas">Only when Compassion is present people will allow themselves to see the truth - Almas</p>
+    <img src="home.jpg" alt="Home photo" />
+  </section>
+
+  <section class="section" id="about">
+    <h2 data-nl="Over mij" data-en="About me">Over mij</h2>
+    <p data-nl="Als eigenaresse van drie praktijken in Arnhem hield ik lange tijd mijn hoofd maar net boven water. ..." data-en="As the owner of three clinics in Arnhem, I barely kept my head above water for a long time. ...">
+      Als eigenaresse van drie praktijken in Arnhem hield ik lange tijd mijn hoofd maar net boven water. ...
+    </p>
+    <blockquote data-nl="Alleen met het hart kun je goed zien, het wezenlijke is voor de ogen onzichtbaar. - Antoine de Saint-Exupér" data-en="One sees clearly only with the heart. The essential is invisible to the eyes. - Antoine de Saint-Exupér">
+      Alleen met het hart kun je goed zien, het wezenlijke is voor de ogen onzichtbaar. - Antoine de Saint-Exupér
+    </blockquote>
+    <img src="Overmij.jpg" alt="Over mij foto" />
+  </section>
+
+  <section class="section" id="coaching">
+    <h2 data-nl="Coaching en begeleiding" data-en="Coaching">Coaching en begeleiding</h2>
+    <p data-nl="Mijn benadering zit op de laag van de essentie, niet enkel op de verandering van gedrag. ..." data-en="My approach focuses on the level of essence, not just behavior change. ...">
+      Mijn benadering zit op de laag van de essentie, niet enkel op de verandering van gedrag. ...
+    </p>
+    <blockquote data-nl="Vertel me iets en het waait door me heen. Laat het me zien en ik weet het morgen nog. Laat het me voelen en ik weet het mijn hele leven. - Lao Tse" data-en="Tell me something and it drifts through me. Show me and I’ll know it tomorrow. Let me feel it and I’ll know it my whole life. - Lao Tse">
+      Vertel me iets en het waait door me heen. Laat het me zien en ik weet het morgen nog. Laat het me voelen en ik weet het mijn hele leven. - Lao Tse
+    </blockquote>
+    <img src="coaching.jpg" alt="Coaching foto" />
+  </section>
+
+  <section class="section" id="contact">
+    <h2 data-nl="Contact" data-en="Contact">Contact</h2>
+    <p data-nl="Neem gerust contact op voor een kennismaking." data-en="Feel free to get in touch for an introduction.">
+      Neem gerust contact op voor een kennismaking.
+    </p>
+    <blockquote data-nl="Safety is not the absence of a threat but the présence of connection - Steven W. Porges" data-en="Safety is not the absence of a threat but the presence of connection - Steven W. Porges">
+      Safety is not the absence of a threat but the présence of connection - Steven W. Porges
+    </blockquote>
+    <img src="contact.jpg" alt="Contact foto" />
+  </section>
+
+  <footer>
+    <small>© 2025 Caroline Coaching</small>
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll("[data-nl]").forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+    }
+  </script>
+</body>
+</html>
