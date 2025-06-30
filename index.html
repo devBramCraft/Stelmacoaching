@@ -126,10 +126,12 @@
     }
     
     #home {
-      min-height: 100vh;
+      min-height: 70vh; /* Reduced from 100vh */
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
     
     .section h1, .section h2 {
@@ -145,9 +147,10 @@
     }
     
     .home-image {
-      max-height: 60vh;
+      max-height: 45vh; /* Reduced from 60vh */
       width: 100%;
       object-fit: cover;
+      margin-top: 1.5rem;
     }
     
     blockquote { 
@@ -185,13 +188,13 @@
         padding: 0.5rem;
       }
       
-      .home-image {
-        max-height: 50vh;
+      #home {
+        min-height: 60vh; /* Reduced for tablet */
+        padding-top: 2rem;
       }
       
-      #home {
-        min-height: 90vh;
-        padding-top: 4rem;
+      .home-image {
+        max-height: 35vh; /* Reduced for tablet */
       }
     }
     
@@ -200,13 +203,13 @@
         padding: 1.5rem;
       }
       
-      .home-image {
-        max-height: 40vh;
+      #home {
+        min-height: 50vh; /* Reduced for mobile */
+        padding-top: 1.5rem;
       }
       
-      #home {
-        min-height: 85vh;
-        padding-top: 3rem;
+      .home-image {
+        max-height: 25vh; /* Reduced for mobile */
       }
     }
   </style>
